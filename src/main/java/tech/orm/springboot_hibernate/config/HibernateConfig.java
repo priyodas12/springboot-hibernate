@@ -43,6 +43,8 @@ public class HibernateConfig {
     factory.setDataSource (getDataSource ());
     factory.setHibernateProperties (getHibernateProperties ());
     factory.setPackagesToScan ("tech.orm.springboot_hibernate.model");
+
+    log.info ("Hibernate SessionFactory:: {}", factory);
     return factory;
   }
 
@@ -52,6 +54,8 @@ public class HibernateConfig {
   public DataSource getDataSource () {
     DriverManagerDataSource dataSource = new DriverManagerDataSource (url, username, password);
     dataSource.setDriverClassName (driverClassName);
+
+    log.info ("Hibernate Datasource:: {}", dataSource);
     return dataSource;
   }
 
